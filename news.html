@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231221103828">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231221184814">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,36 +16,85 @@
 	<div class="wrapper">
 		<main class="page">
 
-
+			<section class="news-content">
+				<div class="news-content__header">
+					<div class="news-content__name">
+						<p>Новости</p>
+					</div>
+					<a href="index.html" class="news-content__arrow">
+						<img src="img/icons/arrow.svg" alt="arrow">
+					</a>
+				</div>
+				<div class="news-content__container">
+					<div class="news-content__body">
+						<div class="news-content__title">
+							<h1>Итоги «Автопробега Dongfeng» в Нижнем Новгороде</h1>
+						</div>
+						<div class="news-content__image">
+							<picture><source data-srcset="img/news/1.webp" type="image/webp"><img data-src="img/news/1.jpg" alt="image" class="lazyload" /></picture>
+						</div>
+						<div class="news-content__text">
+							<p>В процессе переговоров обсуждались планы долгосрочного развития исотрудничества. Пришли к
+								договоренностям расширить модельный ряд DongfengK33-561, добавив удлинённые версии с
+								односкатными и двускатными заднимиколесами и с АКПП.</p>
+							<p>Наши планы:* До конца 2023 года реализовать до 500 автомобилей.* В 2024 году увеличить
+								продажи автомобилей Dongfeng и JUNFENG до 3000автомобилей.Информация о компаниях:ООО
+								«КОММЕРЧЕСКИЕ АВТОМОБИЛИ ДУНФЕН» - динамично развивающаясякомпания с налаженными
+								цепочками логистических поставок, активнорасширяющая дилерскую сеть по продажам и
+								сервисному обслуживанию.</p>
+							<p>Dongfeng Motor - это одно из крупнейших системообразующих автомобильныхгосударственных
+								предприятий в Китае. Обладает богатым опытом в областиавтомобильного производства.</p>
+						</div>
+						<div class="news-content__time">
+							<p>08.10.2023</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
 		</main>
 	</div>
-	<!-- От сборки -->
-	<!-- 
-<div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
+	<div class="modal modal-search" data-modal="1">
+		<button class="form-request__close js-modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+				<g clip-path="url(#clip0_1101_4289)">
+					<path d="M22.909 1.09094L1.09082 22.9091" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M1.09082 1.09094L22.909 22.9091" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+				</g>
+				<defs>
+					<clipPath id="clip0_1101_4289">
+						<rect width="24" height="24" fill="white" />
+					</clipPath>
+				</defs>
+			</svg></button>
+		<div class="form-request__body">
+
+			<div class="form-request__title">
+				<h2>Обратный звонок</h2>
 			</div>
+			<div class="form-request__text">
+				<p>Заполните поля ниже и менеджер отдела продаж перезвонит Вам в ближайшее время</p>
+			</div>
+			<form class="form-request__form">
+				<div class="form-request__name">
+					<input placeholder="Ваше имя" type="text" name="" id="">
+				</div>
+				<div class="form-request__phone">
+					<button><img src="img/icons/13.svg" alt="icon"></button>
+					<input placeholder="+7 (999) 999-99-99" type="text" class="tel" name="" id="">
+				</div>
+				<div class="form-request__button">
+					<button class="request-two">Перезвоните мне</button>
+				</div>
+				<div class="form-request__politics">
+					<p>Отправляя заявку я согласен на обработку запроса и дальнейшую коммуникацию.</p>
+				</div>
+			</form>
 		</div>
+
 	</div>
-</div>
- -->
 
-
-	<!-- Хист модал -->
-	<!-- Кнопка открытия модального окна -->
-	<!-- <a href="#" data-hystmodal="#myModal">Open modal with id=myModal</a> -->
-	<!-- <div class="hystmodal" id="myModal" aria-hidden="true">
-    <div class="hystmodal__wrap">
-        <div class="hystmodal__window" role="dialog" aria-modal="true">
-            <button data-hystclose class="hystmodal__close">Закрыть</button>
-            You modal HTML markup
-        </div>
-    </div>
-</div> -->
-	<script src="js/app.min.js?_v=20231221103828"></script>
+	<div class="overlay js-overlay-modal"></div>
+	<script src="js/app.min.js?_v=20231221184814"></script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@
   --c2: #404040;
   --c3: #e73243;
   --c4: #e4192c;
+  --f12: 0.75rem;
   --f13: 0.8125rem;
   --f12: 0.75rem;
   --f14: 0.875rem;
@@ -14,6 +15,7 @@
   --f20: 1.25rem;
   --f22: 1.375rem;
   --f23: 1.4375rem;
+  --f30: 1.875rem;
   --f40: 2.5rem;
   --f58: 3.625rem;
   --f89: 5.5625rem;
@@ -1177,6 +1179,12 @@ h6 {
     padding-right: 20px;
   }
 }
+@media (max-width: 29.99875em) {
+  .contacts__body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 .contacts__name {
   font-size: var(--f20);
   font-weight: 700;
@@ -1247,6 +1255,145 @@ h6 {
   .contacts__map {
     padding-top: 108%;
   }
+}
+
+.overlay {
+  /* Скрываем подложку  */
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  transition: 0.3s all;
+}
+
+/* Стили для модальных окон */
+.modal {
+  /* Скрываем окна  */
+  opacity: 0;
+  visibility: hidden;
+  /*  Установаем ширину окна  */
+  width: 100%;
+  max-width: 763px;
+  /*  Центрируем и задаем z-index */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+  /* Должен быть выше чем у подложки*/
+  /*  Побочные стили   */
+  box-shadow: 0 3px 10px -0.5px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  background-color: #fff;
+  transition: 0.3s all;
+}
+@media (max-width: 47.99875em) {
+  .modal {
+    height: 100%;
+    padding: 20px;
+    padding-top: 70px;
+  }
+  .modal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+  }
+}
+
+/* Стили для активных классов подложки и окна */
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+/* Стили для кнопки закрытия */
+.form-request__close {
+  background-color: transparent;
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  right: 15px;
+}
+.form-request__close svg {
+  stroke: #969696;
+}
+.form-request__title {
+  font-size: var(--f40);
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: 1.8px;
+  margin-bottom: 18px;
+}
+@media (max-width: 47.99875em) {
+  .form-request__title {
+    font-size: var(--f30);
+  }
+}
+.form-request__text {
+  color: var(--c2);
+  font-size: var(--f17);
+  font-weight: 500;
+  line-height: 145%;
+  letter-spacing: 0.51px;
+  margin-bottom: 18px;
+}
+.form-request__form input {
+  outline: none;
+  border-bottom: 2px solid #969696;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  font-size: var(--f17);
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.17px;
+}
+.form-request__form input::placeholder {
+  color: #969696;
+  font-size: var(--f17);
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.17px;
+}
+.form-request__name {
+  margin-bottom: 18px;
+}
+.form-request__phone {
+  margin-bottom: 18px;
+  position: relative;
+}
+.form-request__phone button {
+  position: absolute;
+  top: 25px;
+  z-index: 2;
+}
+.form-request__phone input {
+  padding-left: 42px;
+}
+.form-request__button {
+  margin-bottom: 18px;
+  height: 64px;
+}
+.form-request__politics {
+  color: var(--c2);
+  font-size: var(--f13);
+  font-weight: 500;
+  line-height: 145%;
+  letter-spacing: 0.715px;
+  opacity: 0.3;
 }
 
 .model-about {
@@ -1371,6 +1518,11 @@ h6 {
 
 .model-advantage {
   background-color: var(--c2);
+}
+@media (min-width: 1050px) {
+  .model-advantage {
+    margin-bottom: 60px;
+  }
 }
 @media (max-width: 1050px) {
   .model-advantage {
@@ -2157,6 +2309,104 @@ h6 {
     max-width: 320px;
     margin: 0 auto;
   }
+}
+
+.news-content {
+  padding-bottom: 362px;
+}
+@media (max-width: 1500px) {
+  .news-content {
+    padding-bottom: 300px;
+  }
+}
+@media (max-width: 75.875em) {
+  .news-content {
+    padding-bottom: 250px;
+  }
+}
+@media (max-width: 61.99875em) {
+  .news-content {
+    padding-bottom: 200px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .news-content {
+    padding-bottom: 150px;
+  }
+}
+@media (max-width: 29.99875em) {
+  .news-content {
+    padding-bottom: 40px;
+  }
+}
+.news-content__header {
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 40px;
+}
+.news-content__name {
+  color: var(--c2);
+  font-size: var(--f15);
+  font-weight: 500;
+  line-height: 145%;
+  letter-spacing: 0.3px;
+}
+.news-content__arrow {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+tr .news-content__arrow img {
+  width: 34px;
+  height: 34px;
+}
+.news-content__body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.news-content__title {
+  font-size: var(--f40);
+  font-weight: 700;
+  line-height: 110%;
+  letter-spacing: -1.6px;
+  margin-bottom: 25px;
+}
+.news-content__image {
+  padding-bottom: 66.7%;
+  position: relative;
+  margin-bottom: 25px;
+}
+.news-content__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.news-content__text {
+  margin-bottom: 35px;
+  color: var(--c2);
+  font-size: var(--f20);
+  font-weight: 500;
+  line-height: 145%;
+  letter-spacing: 0.4px;
+}
+.news-content__text p {
+  margin-bottom: 35px;
+}
+.news-content__text p:last-child {
+  margin-bottom: 0px;
+}
+.news-content__time {
+  color: var(--c2);
+  font-size: var(--f12);
+  font-weight: 400;
+  line-height: 145%;
+  letter-spacing: 0.6px;
 }
 .splide__container {
   box-sizing: border-box;
