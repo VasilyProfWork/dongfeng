@@ -33,6 +33,12 @@
   }
 }
 
+@media (max-width: 1279px) {
+  html {
+    padding-right: 0 !important;
+  }
+}
+
 @font-face {
   font-family: Manrope;
   font-display: swap;
@@ -239,6 +245,17 @@ h6 {
   align-items: center;
   min-height: 95px;
 }
+@media (min-width: 850px) and (max-width: 1600px) {
+  .header__body {
+    flex-wrap: wrap;
+    padding-top: 25px;
+  }
+}
+@media (min-width: 850px) {
+  .header__body {
+    justify-content: space-between;
+  }
+}
 @media (max-width: 47.99875em) {
   .header__body {
     min-height: 66px;
@@ -247,15 +264,10 @@ h6 {
   }
 }
 .header__logo-dongfeng {
-  margin-right: 86px;
+  margin-right: 25px;
 }
 .header__logo-dongfeng img {
   max-width: 163px;
-}
-@media (max-width: 990px) {
-  .header__logo-dongfeng {
-    margin-right: 25px;
-  }
 }
 @media (max-width: 490px) {
   .header__logo-dongfeng {
@@ -264,16 +276,32 @@ h6 {
   }
 }
 .header__menu {
-  margin-right: 111px;
+  margin-right: 25px;
   max-width: 884px;
   width: 100%;
+}
+@media (min-width: 850px) and (max-width: 1600px) {
+  .header__menu {
+    max-width: 100%;
+    flex: 1 1 100%;
+    order: 1;
+    padding-top: 30px;
+    max-width: 884px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 .header__info {
   max-width: 596px;
   display: flex;
   align-items: center;
 }
-@media (max-width: 1919px) {
+@media (min-width: 850px) and (max-width: 1600px) {
+  .header__info {
+    margin-left: auto;
+  }
+}
+@media (max-width: 850px) {
   .header__info {
     margin-right: 15px;
     justify-content: flex-end;
@@ -291,7 +319,7 @@ h6 {
 .header__logo-orion img {
   max-width: 126px;
 }
-@media (max-width: 990px) {
+@media (max-width: 850px) {
   .header__logo-orion {
     margin-bottom: 14px;
     margin-right: 0;
@@ -343,7 +371,7 @@ h6 {
   }
 }
 
-@media (max-width: 1919px) {
+@media (max-width: 850px) {
   .menu {
     position: fixed;
     z-index: 100;
@@ -380,7 +408,7 @@ h6 {
     right: 0;
   }
 }
-@media (max-width: 47.99875em) {
+@media (max-width: 850px) {
   .menu {
     height: 100%;
   }
@@ -397,7 +425,7 @@ h6 {
   display: flex;
   justify-content: space-between;
 }
-@media (max-width: 1919px) {
+@media (max-width: 850px) {
   .menu__list {
     flex-direction: column;
     align-items: center;
@@ -414,7 +442,7 @@ h6 {
 .menu__item:last-child {
   margin-right: 0px;
 }
-@media (max-width: 1919px) {
+@media (max-width: 850px) {
   .menu__item {
     margin-right: 0;
     margin-bottom: 30px;
@@ -437,7 +465,7 @@ h6 {
 .icon-menu {
   display: none;
 }
-@media (max-width: 1919px) {
+@media (max-width: 850px) {
   .icon-menu {
     display: block;
     position: relative;
@@ -1217,12 +1245,17 @@ h6 {
   background-color: #404040;
   z-index: -1;
 }
-@media (min-width: 1550px) {
+@media (min-width: 1024px) {
   .contacts__body::after {
     display: none;
   }
 }
-@media (max-width: 1550px) {
+@media (max-width: 1400px) {
+  .contacts__body {
+    top: 65px;
+  }
+}
+@media (max-width: 1024px) {
   .contacts__body {
     position: static;
   }
@@ -1289,7 +1322,7 @@ h6 {
 .contacts__map {
   position: relative;
   width: 100%;
-  padding-top: 31.7%;
+  padding-top: 603px;
 }
 .contacts__map iframe {
   position: absolute;
@@ -1299,6 +1332,16 @@ h6 {
   bottom: 0;
   width: 100%;
   height: 100%;
+}
+@media (max-width: 1400px) {
+  .contacts__map {
+    padding-top: 500px;
+  }
+}
+@media (max-width: 1024px) {
+  .contacts__map {
+    padding-top: 31.7%;
+  }
 }
 @media (max-width: 47.99875em) {
   .contacts__map {
@@ -1333,6 +1376,7 @@ h6 {
   /*  Установаем ширину окна  */
   width: 100%;
   max-width: 763px;
+  margin: 0 auto;
   /*  Центрируем и задаем z-index */
   position: fixed;
   top: 50%;
@@ -1364,9 +1408,16 @@ h6 {
   }
 }
 
+.js-modal-close {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s all;
+}
+
 /* Стили для активных классов подложки и окна */
 .modal.active,
-.overlay.active {
+.overlay.active,
+.js-modal-close.active {
   opacity: 1;
   visibility: visible;
   overflow: hidden;
@@ -1376,12 +1427,17 @@ h6 {
 .form-request__close {
   background-color: transparent;
   position: absolute;
-  z-index: 10;
-  top: 15px;
-  right: 15px;
+  z-index: 310;
+  top: 20px;
+  right: 20px;
 }
 .form-request__close svg {
-  stroke: #969696;
+  stroke: #fff;
+}
+@media (max-width: 47.99875em) {
+  .form-request__close {
+    top: 13px;
+  }
 }
 .form-request__title {
   font-size: var(--f40);

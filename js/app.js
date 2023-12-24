@@ -3493,26 +3493,6 @@
                     autoplay: false,
                     pagination: false
                 }).mount();
-                if (document.querySelector("#splide4")) new Splide("#splide4", {
-                    perPage: 4,
-                    rewind: true,
-                    gap: 20,
-                    perMove: 1,
-                    pagination: false,
-                    arrows: false,
-                    focus: "center",
-                    autoWidth: true,
-                    isNavigation: true,
-                    breakpoints: {
-                        800: {
-                            perPage: 4,
-                            grid: {
-                                rows: 2,
-                                cols: 2
-                            }
-                        }
-                    }
-                }).mount();
             }
             initSliders();
         }));
@@ -3549,6 +3529,7 @@
         mascTel();
         function myModal() {
             let modalButtons = document.querySelectorAll(".js-open-modal");
+            const getScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
             const lock = document.querySelector("html");
             let overlay = document.querySelector(".js-overlay-modal");
             let closeButtons = document.querySelectorAll(".js-modal-close");
@@ -3561,19 +3542,23 @@
             }));
             for (let elemBtn of modalButtons) elemBtn.addEventListener("click", (function(e) {
                 e.preventDefault();
+                lock.style.cssText += "padding-right: " + getScrollbarWidth + "px;";
                 let modalId = this.getAttribute("data-modal");
                 let modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
                 if (!modalElem.classList.contains("active")) modalElem.classList.add("active");
                 overlay.classList.add("active");
                 lock.classList.add("lock");
+                for (let elemClose of closeButtons) if (!elemClose.classList.contains("active")) elemClose.classList.add("active");
                 let parentBody = this.closest(".modal");
                 if (parentBody.classList.contains("active")) parentBody.classList.remove("active");
             }));
-            for (let elem of closeButtons) elem.addEventListener("click", (function() {
-                var parentModal = this.closest(".modal");
+            for (let elemClose of closeButtons) elemClose.addEventListener("click", (function() {
+                var parentModal = this.previousElementSibling;
                 parentModal.classList.remove("active");
                 overlay.classList.remove("active");
                 lock.classList.remove("lock");
+                this.classList.remove("active");
+                lock.style.cssText += "padding-right: 0px;";
             }));
             document.body.addEventListener("keyup", (function(e) {
                 var key = e.keyCode;
@@ -3581,12 +3566,16 @@
                     document.querySelector(".modal.active").classList.remove("active");
                     document.querySelector(".overlay").classList.remove("active");
                     lock.classList.remove("lock");
+                    lock.style.cssText += "padding-right: 0px;";
                 }
             }), false);
             overlay.addEventListener("click", (function() {
-                document.querySelector(".modal.active").classList.remove("active");
+                let modal = document.querySelector(".modal.active");
+                modal.classList.remove("active");
                 this.classList.remove("active");
                 lock.classList.remove("lock");
+                lock.style.cssText += "padding-right: 0px;";
+                for (let elem of closeButtons) elem.classList.remove("active");
             }));
         }
         myModal();
